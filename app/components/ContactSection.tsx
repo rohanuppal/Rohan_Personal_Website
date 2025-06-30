@@ -27,7 +27,7 @@ export default function ContactSection() {
 					transition={{ duration: 0.8, delay: 0.6 }}
 					className="italic text-gray-400 pl-4 max-w-md mx-auto"
 				>
-					"How hard can it be?" — Jeremy Clarkson
+					&quot;How hard can it be?&quot; — Jeremy Clarkson
 				</motion.blockquote>
 
 				<motion.div

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import { useTypewriter } from 'react-simple-typewriter';
 
 const TypewriterClient = () => {
 	const [text] = useTypewriter({

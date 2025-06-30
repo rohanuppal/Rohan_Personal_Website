@@ -11,7 +11,7 @@ export default function Navbar() {
 	const [active, setActive] = useState('');
 	const [isOpen, setIsOpen] = useState(false);
 	const isManualClick = useRef(false);
-	let scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+	const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
 	// Scroll Spy
 	useEffect(() => {
@@ -20,7 +20,7 @@ export default function Navbar() {
 
 			const scrollPosition = window.scrollY + 200;
 
-			for (let id of sections) {
+			for (const id of sections) {
 				const section = document.getElementById(id);
 				if (section && scrollPosition >= section.offsetTop) {
 					setActive(id);
