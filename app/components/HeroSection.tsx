@@ -7,7 +7,7 @@ import { MdEmail } from 'react-icons/md';
 import dynamic from 'next/dynamic';
 const TypewriterClient = dynamic(() => import('./TypewriterClient'), { ssr: false });
 
-export default function HeroSection() {
+export default function HeroSection() { 
 	return (
 		<motion.section
 			initial={{ opacity: 0 }}

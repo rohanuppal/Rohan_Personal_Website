@@ -407,16 +407,23 @@ const experienceItems = [
 		role: 'Software Developer Intern',
 		company: 'IBM',
 		duration: 'May 2024 - Present',
-		description:
-			'Developing and maintaining EDI data processing scripts using Python and SQL, reducing data-related support tickets by 35% and improving integration accuracy for over 150 partner systems.',
+		description: [
+			'Developed scalable EDI workflows for IBM Sterling B2Bi using Java, boosting backend data exchange performance by 25%',
+      'Integrated Watsonx into Salesforce with JavaScript and Python via REST APIs, reducing case resolution time by 20%',
+      'Created a Chrome extension to connect Monday.com with Salesforce, saving support agents 150 minutes daily',
+      'Provided technical support to 150+ trading partners and resolved over 300 EDI-related tickets',
+    ],
 		logo: '/ibm.png',
 	},
 	{
 		role: 'Analyst Intern',
 		company: 'Deloitte',
 		duration: 'May 2023 - Aug 2023',
-		description:
-			'Built an Azure-hosted web portal to support Canada’s largest class-action lawsuit for 50,000 Indigenous individuals, while also developing Python scripts to extract data from hard drives and visualizing insights in PowerBI dashboards.',
+		description: [
+			'Built an Azure-hosted web portal using React.js, C#, and SQL assisting 50,000+ Indigenous individuals with $2B in claims',
+      'Automated data extraction with Python and visualized insights through Power BI dashboards for five client projects',
+      'Developed a PDF export feature for Relativity used across 2,000+ workspaces, saving 1 hour daily on reporting tasks',
+    ],
 		logo: '/deloitte.png',
 		articleLink:
 			'https://medium.com/@rohanuppal35/my-internship-experience-at-deloitte-4007792f2f63',
@@ -425,8 +432,10 @@ const experienceItems = [
 		role: 'Computer Engineering Intern',
 		company: 'Ontario Power Generation',
 		duration: 'May 2022 - Dec 2022',
-		description:
-			'Built two internal websites for trend analysis and employee engagement using ReactJs, Javascript, and HTML/CSS while leading a 10-member team from concept to deployment to implement touchscreen kiosks within a nuclear power plant.',
+		description: [
+			'Developed two internal websites using React.js, JavaScript, HTML, and CSS to track trends and engagement for 500+ employees',
+      'Led a 10-member team to install touchscreen kiosks at a nuclear power plant, doubling the speed of safety concern reporting',
+    ],
 		logo: '/opg.png',
 		articleLink:
 			'https://medium.com/@rohanuppal35/my-internship-experience-at-opg-767bb97fab12',
@@ -437,8 +446,9 @@ const achievements = [
 	{
 		title: 'Infobesity Challenge Winner',
 		date: '2023',
-		description:
-			'Designed an AI software that fact-checks information in Youtube videos for mindful information consumption.',
+		description: [
+			'Designed an AI software that fact-checks information in Youtube videos for mindful information consumption',
+    ],
 		certificateLink: 'https://drive.google.com/file/d/1o4ohu8gHJeSZRz3-aiZpn9sjde6-20sm/view?usp=sharing',
 		projectLink:
 			'https://docs.google.com/presentation/d/1ZhJtCdh3roCm-arWipC8uphTWMqkg0J4vvwKsl_t2_8/edit?slide=id.g229b3bbf4b0_6_68#slide=id.g229b3bbf4b0_6_68',
@@ -446,8 +456,9 @@ const achievements = [
 	{
 		title: 'BOLT Hackathon Winner',
 		date: '2023',
-		description:
-			'Designed an AR Navigation and Chatbot integrated website to improve the customer service experience for the retail industry.',
+		description: [
+			'Designed an AR Navigation and Chatbot integrated website to improve the customer service experience for the retail industry',
+    ],
 		certificateLink: 'https://drive.google.com/file/d/194JrjYPmd3cjOlmiU6tNcbamxh5TzUJz/view?usp=sharing',
 		projectLink:
 			'https://docs.google.com/presentation/d/1glWIYVIooQNmv6lAElKIHbsubKdC1n8Z/edit?slide=id.p1#slide=id.p1',
@@ -469,17 +480,19 @@ export default function ExperienceSection() {
 					Experience
 				</motion.h2>
 
-				{/* Experience */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6 }}
-					className="mb-12"
-				>
-					<h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Work Experience</h3>
-					<div className="space-y-8">
-						{experienceItems.map(({ role, company, duration, description, logo, articleLink }) => (
+        {/* Experience */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-semibold mb-6 text-center md:text-left">
+            Work Experience
+          </h3>
+          <div className="space-y-8">
+            {experienceItems.map(({ role, company, duration, description, logo, articleLink }) => (
               <div
                 key={role}
                 className="bg-white/15 rounded-xl p-6 transition-colors flex flex-col-reverse md:flex-row items-center md:justify-between"
@@ -488,7 +501,18 @@ export default function ExperienceSection() {
                 <div className="flex-1 md:pr-4 text-center md:text-left">
                   <h4 className="text-xl font-semibold">{role}</h4>
                   <p className="text-gray-400 italic">{duration}</p>
-                  <p className="mt-2">{description}</p>
+
+                  {/* Render bullet list if description is an array */}
+                  {Array.isArray(description) ? (
+                    <ul className="mt-2 list-disc list-inside space-y-2 text-left">
+                      {description.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="mt-2">{description}</p>
+                  )}
+
                   {articleLink && (
                     <a
                       href={articleLink}
@@ -514,60 +538,70 @@ export default function ExperienceSection() {
                 )}
               </div>
             ))}
-					</div>
-				</motion.div>
+          </div>
+        </motion.div>
+
 
 				{/* Achievements */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6 }}
-					className="mb-12"
-				>
-					<h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Achievements</h3>
-					<div className="space-y-8">
-						{achievements.map(({ title, date, description, certificateLink, projectLink }) => (
-							<div
-								key={title}
-								className="bg-white/15 rounded-xl p-6 transition-colors flex justify-between flex-col md:flex-row md:items-center"
-							>
-								{/* Left: Text */}
-								<div className="md:flex-1 md:pr-6">
-									<h4 className="text-xl font-semibold">{title}</h4>
-									<p className="text-gray-400 italic">{date}</p>
-									<p className="mt-2">{description}</p>
-								</div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Achievements</h3>
+          <div className="space-y-8">
+            {achievements.map(({ title, date, description, certificateLink, projectLink }) => (
+              <div
+                key={title}
+                className="bg-white/15 rounded-xl p-6 transition-colors flex justify-between flex-col md:flex-row md:items-center"
+              >
+                {/* Left: Text */}
+                <div className="md:flex-1 md:pr-6">
+                  <h4 className="text-xl font-semibold">{title}</h4>
+                  <p className="text-gray-400 italic">{date}</p>
 
-								{/* Right: Buttons stacked vertically */}
-								<div className="flex flex-col gap-3 mt-4 md:mt-0">
-									{certificateLink && (
-										<a
-											href={certificateLink}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition-colors text-center"
-										>
-											Certificate
-										</a>
-									)}
-									{projectLink && (
-										<a
-											href={projectLink}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition-colors text-center"
-										>
-											Project
-										</a>
-									)}
-								</div>
-							</div>
-						))}
-					</div>
-				</motion.div>
+                  {/* Support bullet list if description is an array */}
+                  {Array.isArray(description) ? (
+                    <ul className="mt-2 list-disc list-inside space-y-2 text-left">
+                      {description.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="mt-2">{description}</p>
+                  )}
+                </div>
 
-				{/* Professional Skills */}
+                {/* Right: Buttons */}
+                <div className="flex flex-col gap-3 mt-4 md:mt-0">
+                  {certificateLink && (
+                    <a
+                      href={certificateLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition-colors text-center"
+                    >
+                      Certificate
+                    </a>
+                  )}
+                  {projectLink && (
+                    <a
+                      href={projectLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition-colors text-center"
+                    >
+                      Project
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
 				{/* Professional Skills */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
