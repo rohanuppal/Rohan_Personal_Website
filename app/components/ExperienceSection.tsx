@@ -412,6 +412,7 @@ const experienceItems = [
       'Integrated Watsonx into Salesforce with JavaScript and Python via REST APIs, reducing case resolution time by 20%',
       'Created a Chrome extension to connect Monday.com with Salesforce, saving support agents 150 minutes daily',
       'Provided technical support to 150+ trading partners and resolved over 300 EDI-related tickets',
+      'Led IBM’s intern community (FUBU) as President, strengthening collaboration and community among 100+ interns',
     ],
 		logo: '/ibm.png',
 	},
