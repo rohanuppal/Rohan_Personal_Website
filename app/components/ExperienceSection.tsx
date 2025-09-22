@@ -406,7 +406,7 @@ const experienceItems = [
 	{
 		role: 'Software Developer Intern',
 		company: 'IBM',
-		duration: 'May 2024 - Present',
+		duration: 'May 2024 - Aug 2025',
 		description: [
 			'Developed scalable EDI workflows for IBM Sterling B2Bi using Java, boosting backend data exchange performance by 25%',
       'Integrated Watsonx into Salesforce with JavaScript and Python via REST APIs, reducing case resolution time by 20%',
